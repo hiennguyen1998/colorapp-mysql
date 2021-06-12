@@ -11,13 +11,13 @@ const connection = require('./config/db')
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-connection.connect((err)=>{
-    if(err){
-        console.log(`err: ${err.message}`)
-        return
-    }
-    console.log("Db connected successfully")
-})
+// connection.connect((err)=>{
+//     if(err){
+//         console.log(`err: ${err.message}`)
+//         return
+//     }
+//     console.log("Db connected successfully")
+// })
 app.use((req,res,next)=>{
     req.con = connection 
     next()
