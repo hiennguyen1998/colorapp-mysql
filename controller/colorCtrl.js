@@ -13,11 +13,11 @@ exports.getColorName = async(req,res)=>{
             })
             let matchedColor = stringSimilarity.findBestMatch(`${queryStr}`, colorName);
             let result = matchedColor.bestMatch.rating < 0.3 ? null : matchedColor.bestMatch.target
-            const [color,fiedls] = await queryPro.query(`select * from tblColor where colorName like '${result}'`)
+            const [Colors,fiedls] = await queryPro.query(`select * from tblColor where colorName like '${result}'`)
             //const a =`select * from tblColor where colorName like "${result}"`
             res.status(200).json({
                 message: "Success",
-                color
+                Colors
             })
         }
     }catch(err){

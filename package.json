@@ -5,16 +5,23 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app"
+    "react": "cd client && npm install && npm run build",
+    "node": "node app",
+    "start": "concurrently \"npm run react\" \"npm run node\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^6.2.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "env": "0.0.2",
     "express": "^4.17.1",
     "mysql2": "^2.2.5",
     "string-similarity": "^4.0.4"
+  },
+  "engines": {
+    "node": "14.x",
+    "npm": "6.x"
   }
 }
